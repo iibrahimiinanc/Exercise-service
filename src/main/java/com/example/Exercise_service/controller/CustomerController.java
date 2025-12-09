@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
@@ -13,5 +15,13 @@ public class CustomerController {
     public Customer getCustomerById(@PathVariable Long id){
       return new Customer(id , " ibrahim", "inanç");
     }
+   @GetMapping()
+    public List<Customer> getAllCustomer(){
+        return List.of(
+                new Customer(1L,"ibrahim","inanç"),
+                new Customer(2L, "ahmet", "inanç"),
+                new Customer(3L,"mehmet ", "inanç")
+        );
 
+   }
 }
